@@ -116,25 +116,27 @@ export  function renderOrderSummary() {
                 deleteBtn.addEventListener('click', () => {
                     const {deleteId} = deleteBtn.dataset;
                     deleteFromCart(deleteId);    
-                    removeDeletedFromDOM(deleteId);
-                    
+                    //removeDeletedFromDOM(deleteId);
+                    renderOrderSummary();
+                    renderPaymentSummary();
                 
                 });
             });
 
-        function removeDeletedFromDOM(deleteId) {
+        /* function removeDeletedFromDOM(deleteId) {
           const cartContainer = document.querySelector(`.js-cart-item-container-${deleteId}`);
           cartContainer.remove();
           updateQuantityOnPage();
           renderPaymentSummary();
-        }
+        } */
 
         // to render checkout item quantity
 
-        function updateQuantityOnPage(){
+      function updateQuantityOnPage(){
             const cartQuantity = calculateCartQuantity();
-            document.querySelector('.js-return-to-home-link')
-                .innerHTML = `${cartQuantity} items`;
+            document.querySelector('.js-return-to-home-link').innerHTML = `${cartQuantity} items`;
+    
+
             renderPaymentSummary();
         }
         updateQuantityOnPage();
