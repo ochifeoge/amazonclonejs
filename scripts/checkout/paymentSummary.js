@@ -77,12 +77,14 @@ import { addOrder } from "../../data/orders.js";
   
            const order = await response.json();
            
+           console.log(order)
+           
            addOrder(order);
           } catch (error) {
             console.log('Unexpected error, try agian later.')
           }
-
-          window.location.href = 'orders.html'
+          window.location.href = 'orders.html';
+          
 
           
         });

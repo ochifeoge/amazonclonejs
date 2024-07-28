@@ -4,7 +4,7 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 //import '../data/car.js';
 //import '../data/backend-practice.js';
 import { loadProducts, loadProductsFetch } from "../data/products.js";
-import { loadCart } from "../data/cart.js";
+import { loadCart, loadCartFetch } from "../data/cart.js";
 
 
     async function loadPage() {
@@ -12,14 +12,16 @@ import { loadCart } from "../data/cart.js";
            // throw 'error 1';
 
             await loadProductsFetch();
+
+            loadCartFetch();
     
-            const value = await new Promise((resolve, reject)=>{
+           /*  const value = await new Promise((resolve, reject)=>{
                 // throw 'error 2'
                 loadCart(()=>{
                    // reject('error 2')
                     resolve('value 3');
                 });
-            });
+            }); */
 
         } catch (error) {
             console.log('Unexpected error. Please try again later.')

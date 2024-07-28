@@ -98,3 +98,12 @@ export function updateQuantyonCartPage(productId, newQuantity){
         xhr.send();
     
       }
+
+    export async function loadCartFetch() {
+        const response = await fetch('https://supersimplebackend.dev/cart');
+
+        const cartBackend = await response.text();
+
+        console.log(cartBackend);
+        return cartBackend;
+    }
